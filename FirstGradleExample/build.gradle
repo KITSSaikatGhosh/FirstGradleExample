@@ -6,14 +6,17 @@ buildscript {
         classpath("org.springframework.boot:spring-boot-gradle-plugin:1.5.2.RELEASE")
     }
 }
+# Added docker group
+group = 'saikat17ster'
 
 apply plugin: 'java'
 apply plugin:'eclipse'
 apply plugin:'org.springframework.boot'
 apply plugin:'war'
+apply plugin: 'docker'
 
-jar{
-	baseName='FirstGradleExample'
+war{
+	baseName='firstgradleexample'
 	version='1.0'
 }
 
@@ -28,4 +31,17 @@ dependencies {
 	compile("org.springframework.boot:spring-boot-starter-web")
 	compile("javax.servlet:jstl")
     compile("org.apache.tomcat.embed:tomcat-embed-jasper")
+}
+
+# Added Docker 
+task buildDocker(type: Docker, dependsOn: build) {
+  push = true
+  applicationName = war.baseName
+  dockerfile = file('src/main/docker/Dockerfile')
+  doFirst {
+    copy {
+      from war
+      into stageDir
+    }
+  }
 }
