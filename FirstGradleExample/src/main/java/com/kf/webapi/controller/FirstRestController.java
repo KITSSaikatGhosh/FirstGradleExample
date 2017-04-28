@@ -8,7 +8,7 @@ public class FirstRestController {
 
 	@GetMapping("/sayBourne")
 	public String welcome() {
-		System.out.println("Inside in sayHello....in Docker ...Go..Hurry...!!!");
+		System.out.println("Inside in sayBourne....in Docker ...Go..Hurry...!!!");
 		return "Hi User!!! Welcome to Bournemouth Sea Shore";
 	}
 	
