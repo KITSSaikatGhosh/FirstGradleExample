@@ -9,7 +9,7 @@ buildscript {
         classpath('se.transmode.gradle:gradle-docker:1.2')
     }
 }
-# Added docker group
+// Added docker group
 group = 'saikat17ster'
 
 apply plugin: 'java'
@@ -36,7 +36,7 @@ dependencies {
     compile("org.apache.tomcat.embed:tomcat-embed-jasper")
 }
 
-# Added Docker 
+// Added Docker 
 task buildDocker(type: Docker, dependsOn: build) {
   push = true
   applicationName = war.baseName
