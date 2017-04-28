@@ -20,7 +20,7 @@ apply plugin: 'docker'
 
 war{
 	baseName='firstgradleexample'
-	version='1.0'
+	//version='1.0'
 }
 
 repositories {
